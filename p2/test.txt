@@ -1,0 +1,100 @@
+CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON
+
+
+
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON
+
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON&elementName=RAIN&parameterName=CITY
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON&elementName=HOUR_24&parameterName=CITY
+
+// //溫度
+// foreach($T as $item=>$value){
+
+//     $get_date=$value->dataTime;
+//     $get_date=substr($get_date, 0, 10);
+    
+//     if($get_date==$day1 or $get_date==$day2){
+
+//         echo $value->dataTime;   
+//         echo "  溫度: ".$value->elementValue[0]->value."攝氏度";
+//         echo "<br>";
+
+//     }
+    
+// }
+
+
+
+
+
+//天氣狀況
+// foreach($wx as $item=>$value){
+
+//     $get_date=$value->startTime;
+//     $get_date=substr($get_date, 0, 10);
+    
+//     if($get_date==$day1 or $get_date==$day2){
+
+//         echo $value->startTime;   
+//         echo "  天氣: ".$value->elementValue[0]->value;
+//         echo "<br>";
+
+//     }
+    
+// }
+
+
+echo "<br>";
+
+//降雨率
+// foreach($dd as $item=> $value){
+//         //print_r($value->startTime);
+//     $get_date=$value->startTime;
+//     $get_date=substr($get_date, 0, 10);//取出日期
+//     //echo $get_date."<br>";
+
+//     if($get_date==$day1 or $get_date==$day2){
+
+//         echo $value->startTime; 
+//         echo " 降雨率".$value->elementValue[0]->value."%";
+//         echo "<br>";
+//     }    
+// }
+
+/******************************************/
+
+//未來兩天
+// $api2_data=clink($api2_url);
+// $current2=$api2_data->records->locations[0]->location;
+
+// // //$current2[0] 假設在雲林
+// $dd=$current2[$id]->weatherElement[0]->time; //降雨百分比
+// $wx=$current2[$id]->weatherElement[1]->time; //天氣現象
+// $T=$current2[$id]->weatherElement[3]->time; //溫度
+// $weatherDescription=$current2[$id]->weatherElement[6]->time; //綜合描述
+
+// //後兩天天氣
+// foreach($weatherDescription as $item=>$value){
+
+//     $get_date=$value->startTime; //2020-08-29 09:00:00
+    
+//     $get_time=substr($get_date, 11, -6); //2020-08-29
+//     $get_date=substr($get_date, 0, 10);  //09:00:00
+    
+    
+//     if(($get_date==$day1 or $get_date==$day2) and $get_time=="06"){ //過濾日期
+//         echo $get_date;   
+//         echo "  描述: ".$value->elementValue[0]->value;
+//         echo "<br>";
+//     }
+    
+// }
+// echo 'a'."<br>";
