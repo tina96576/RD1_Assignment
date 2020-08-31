@@ -1,0 +1,34 @@
+CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-089?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON
+
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON&elementName=RAIN&parameterName=CITY
+
+
+https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-E7799364-6F85-44B7-BF07-F8C9C143E0B8&format=JSON&elementName=HOUR_24&parameterName=CITY
+
+
+
+
+$s_time="SELECT time FROM twoday WHERE time='$twoday_t'";
+            require("conn.php");
+            $result1=mysqli_query($link,$s_time);
+            $row1=mysqli_fetch_assoc($result1);
+           
+            if($row1['time']==""){  //判斷時間有沒有存在
+                $sql="insert into twoday(city,time,descript) values('$city','$twoday_t','$twoday_descript')";
+                require("conn.php");
+                mysqli_query($link,$sql);
+
+            }
+
+
+            TRUNCATE TABLE twoday
+
+
+  

@@ -4,13 +4,9 @@ use weather;
 
 
 create table today(
-    tid int auto_increment primary key,
-    tcity varchar(20) not null,
-    ws varchar(20) not null,
-    rain int not null,
-    t1 int not null,
-    comfort varchar(20) not null,
-    t2 int not null);
+    city varchar(20) not null,
+    time1 varchar(30) not null,
+    descript varchar(255) not null);
 
 create table week(
     city varchar(20) not null,
