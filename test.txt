@@ -15,20 +15,9 @@ https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-
 
 
 
-$s_time="SELECT time FROM twoday WHERE time='$twoday_t'";
-            require("conn.php");
-            $result1=mysqli_query($link,$s_time);
-            $row1=mysqli_fetch_assoc($result1);
-           
-            if($row1['time']==""){  //判斷時間有沒有存在
-                $sql="insert into twoday(city,time,descript) values('$city','$twoday_t','$twoday_descript')";
-                require("conn.php");
-                mysqli_query($link,$sql);
-
-            }
 
 
-            TRUNCATE TABLE twoday
+TRUNCATE TABLE twoday
 
 
   

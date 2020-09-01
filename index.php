@@ -72,12 +72,11 @@ $current = $api1_data->records->location;
 
         }
         #col2{
-                height: 450px;
-                height:300px;
-                border-radius: 10px;
-                border: 10px solid rgb(142, 217, 240);
-                margin:30px;
-   
+               
+            height: 450px;
+            height:300px;
+            border-radius: 10px;
+            vertical-align: middle;
    
         }
         p{
@@ -95,27 +94,25 @@ $current = $api1_data->records->location;
             height:30px;
             border:2px solid #aaa;
             border-radius:5px;
+          
+            position:absolute; top:40%; right:25%;
            
-        }
-        .form{
-            
-            margin-top:10px;
-            padding-left: 90px;
         }
         .form .btn{
             
+            
+            
+            width: 6em;
             border-radius:5px;
             border:2px #D0D0D0;
             background-color:#ADADAD;
             margin-top:50px;
-            margin-left: 40px;
-          
-            
+            position:absolute; top:50%; left:35%;
         }
 
-        .form-contain{
-            margin:0 auto;
-        }
+      
+
+        
       
         
    
@@ -141,7 +138,7 @@ $current = $api1_data->records->location;
       <p>請選擇地區</p>
       <hr>
       <div class="form-contain">
-        <form method="post" class="form" action="index2.php"> 
+        <form method="post" class="form" action="today.php"> 
         <select name="number" id="number">
         <option value="" selected disabled hidden><?= $defaultname;?></option>
         <?php  foreach($current as  $value){ ?>
