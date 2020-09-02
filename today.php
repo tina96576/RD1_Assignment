@@ -11,7 +11,7 @@ function clink($url){
     return $data;
 }
 
-
+require("conn.php");
 
 
 /**連結資料庫  一週天氣**/
@@ -29,7 +29,6 @@ foreach($current3 as $value){
         
 
         $s_time="SELECT city,time1 FROM week WHERE time1='$twoday_t'";
-        require("conn.php");
         $result1=mysqli_query($link,$s_time);
         $row1=mysqli_fetch_assoc($result1);
 
@@ -42,9 +41,11 @@ foreach($current3 as $value){
     }
 }
 
+$api1_data=clink($api_url);
+$current = $api1_data->records->location;
 
 if(isset($_POST['number'])){
-    $id=$_POST['number'];
+    $id=$_POST['number'];//縣市
     //echo $id."<br>";
     $defaultname=$_POST['number'];
     $city=$defaultname;
@@ -55,9 +56,9 @@ if(isset($_POST['number'])){
             $id=$item;  
         }  
     }  
-    echo '<img src="/RD1_Assignment-master/image/'.$city.'.jpeg " width="500" height="300"/>';
+    
 } 
-
+echo '<img src="/RD1_Assignment/image/'.$city.'.jpeg " width="500" height="300"/>';
 
 
 ?>
@@ -96,9 +97,12 @@ if(isset($_POST['number'])){
   
   <div class="row">
     <div class="col-sm-6" id="box1" style="background-color:lavender;">
+
+
     <p>------[今日天天氣]------</p>
     <?php
-        
+        $cate=array();
+        $title = array('天氣狀況', '降雨率', '溫度1', '舒適度','溫度2');
         for($i=0;$i<5;$i++){ 
             $cate[$i]=$current[$id]->weatherElement[$i]->time[0]->parameter->parameterName;
             echo $title[$i].": ".$cate[$i]."<br>";
@@ -108,24 +112,41 @@ if(isset($_POST['number'])){
     <div class="col-sm-6"  id="box2" style="background-color:lavenderblush;">
     <p>------[明後天天氣]------</p>
     <?php
+
         $day1= date("Y-m-d",strtotime("1 day"));//明天
         $day2=date("Y-m-d",strtotime("2 day"));//後天
 
-        $w3=$current3[$id]->weatherElement[10]->time; //綜合描述
+        /*----------------------取得選取的縣市-----------------------------*/
+
+
+
+        $id3="";
+        foreach($current3 as $item=> $value){
+        // echo $value->locationName;
+            if($value->locationName=="$defaultname"){
+                $id3=$item;
+            }
+        }     
+
+        /*----------------------明後天天氣-----------------------------*/
+       
+        $w3=$current3[$id3]->weatherElement[10]->time; //綜合描述
+
         foreach($w3 as $item=>$value){
-            
+
             $get_date=$value->startTime; //2020-08-29 09:00:00
             $get_time=substr($get_date, 11, -6); //2020-08-29
             $get_date=substr($get_date, 0, 10);  //09:00:00
             
+
             if(($get_date==$day1 or $get_date==$day2) and ($get_time=="06" or $get_time=="18")){ //過濾日期
-        
-                
+
                 echo $value->startTime;   
                 echo "  描述: ".$value->elementValue[0]->value;
                 echo "<br>";
+        
+            }
             
-            } 
         }
     
     ?>

@@ -21,7 +21,7 @@ $current5=$api5_data->records->location;
 if($_GET['city']){
     $city=$_GET['city'];
     //echo $city;
-    echo '<img src="/RD1_Assignment-master/image/'.$city.'.jpeg " width="500" height="300"/>';
+    echo '<img src="/RD1_Assignment/image/'.$city.'.jpeg " width="500" height="300"/>';
 }    
 
 
