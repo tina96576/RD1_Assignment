@@ -54,6 +54,7 @@ if($_GET['city']){
 <h2><?=$city?></h2>
 <p></p>
 <div class="w3-bar w3-border w3-light-grey" >
+<a href="rain24.php?city=<?= $today?>" class="w3-bar-item w3-button" style="background-color:#6495ED;">天氣</a>
 <a href="rain.php?city=<?= $city?>" class="w3-bar-item w3-button" style="background-color:#A3D1D1;">一小時前累積雨量</a>
 <a href="rain24.php?city=<?= $city?>" class="w3-bar-item w3-button" style="background-color:#FFD1A4;">24小時前累積雨量</a>
 <a href="index.php" class="w3-bar-item w3-button" style="background-color:#ACD6FF;">回首頁</a>
@@ -74,6 +75,7 @@ if($_GET['city']){
                 echo $area;
                 echo  $value->locationName;
                 echo  $value->weatherElement[0]->elementValue;
+                echo "<br>";
                 echo "<br>";
             }
         }
